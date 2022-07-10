@@ -7,7 +7,7 @@ module.exports = {
   authMiddleware: function({ req }) {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
-
+    console.log('print token', token)
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
       token = token
@@ -26,7 +26,7 @@ module.exports = {
     } catch {
       console.log('Invalid token');
     }
-
+    console.log('get token', req.user)
     return req;
   },
   signToken: function({ username, email, _id }) {

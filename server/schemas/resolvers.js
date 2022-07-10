@@ -10,10 +10,10 @@ const resolvers = {
           .select('-__v -password')
           .populate('thoughts')
           .populate('friends');
-
+        console.log('look for token', userData)
         return userData;
       }
-
+      console.log('show token', context.user)
       throw new AuthenticationError('Not logged in');
     },
     users: async () => {
